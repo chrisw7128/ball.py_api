@@ -1,5 +1,5 @@
-from flask_migrate import Migrate
 from flask import Flask
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -20,5 +20,9 @@ def create_app():
     @app.route("/")
     def hello():
         return "Hello, Flask Application Factory!"
+
+    from blueprints.reptile_bp import reptile_bp
+
+    app.register_blueprint(reptile_bp)
 
     return app
