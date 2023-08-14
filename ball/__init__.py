@@ -18,11 +18,11 @@ def create_app():
     migrate = Migrate(app, models.db)
 
     @app.route("/")
-    def hello():
+    def index():
         return "Hello, Flask Application Factory!"
 
-    from blueprints.reptile_bp import reptile_bp
+    from . import reptile
 
-    app.register_blueprint(reptile_bp)
+    app.register_blueprint(reptile.reptile_bp)
 
     return app
